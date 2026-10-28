@@ -101,8 +101,8 @@ snakeyaml = "2.6"
 sqlite4java = "1.0.392"
 
 # https://developer.android.com/jetpack/androidx/versions
-androidx-annotation = "1.10.0"
-androidx-appcompat = "1.7.1"
+androidx-annotation = "1.11.0"
+androidx-appcompat = "1.8.0"
 androidx-biometric = "1.1.0"
 androidx-constraintlayout = "2.2.1"
 androidx-core = "1.19.0"
