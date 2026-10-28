@@ -1,0 +1,37 @@
+plugins {
+  alias(libs.plugins.android.library)
+  alias(libs.plugins.robolectric.android.project)
+}
+
+android {
+  compileSdk = 37
+  namespace = "org.robolectric.integrationtests.testparameterinjector"
+
+  defaultConfig { minSdk = 23 }
+
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+
+  testOptions {
+    targetSdk = 36
+    unitTests.isIncludeAndroidResources = true
+  }
+}
+
+androidComponents {
+  beforeVariants { variantBuilder ->
+    // testparameterinjector does not support AndroidTest.
+    variantBuilder.enableAndroidTest = false
+  }
+}
+
+dependencies {
+  // Testing dependencies
+  testImplementation(project(":robolectric"))
+  testImplementation(variantOf(libs.test.parameter.injector) { artifactType("jar") })
+  testImplementation(libs.findbugs.jsr305)
+  testImplementation(libs.junit4)
+  testImplementation(libs.truth)
+}
